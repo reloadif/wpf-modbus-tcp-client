@@ -2,7 +2,7 @@
 {
     public static class Config
     {
-        public static readonly string DefaultModbusControllerIp = "127.0.0.1";
-        public static readonly string DefaultModbusControllerPort = "502";
+        public static string DefaultModbusControllerIp = "127.0.0.1";
+        public static string DefaultModbusControllerPort = "502";
     }
 }

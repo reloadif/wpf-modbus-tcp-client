@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PLCModbusClient.Services.Mediators.ViewModelMediators;
-using PLCModbusClient.Services.Mediators.ViewModelMediators.Interface;
 using PLCModbusClient.ViewModels;
 using PLCModbusClient.Views;
 
@@ -17,8 +15,6 @@ namespace PLCModbusClient
                 {
                     services.AddSingleton<App>();
                     services.AddSingleton<MainPage>();
-
-                    services.AddSingleton<IViewModelMeadiator, ViewModelMeadiator>();  
 
                     services.AddSingleton<HomePageViewModel>();
                     services.AddSingleton<HomePage>();

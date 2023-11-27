@@ -61,7 +61,7 @@
                 </Grid>
 
                 <Grid Grid.Column="1" Grid.Row="2">
-                    <Rectangle x:Name="xamlConnectionBackground">
+                    <Rectangle>
                         <Rectangle.Style>
                             <Style TargetType="Rectangle">
                                 <Setter Property="Fill" Value="DarkRed"/>
@@ -74,7 +74,7 @@
                             </Style>
                         </Rectangle.Style>
                     </Rectangle>
-                    <Label x:Name="xamlConnectionText" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label.Style>
                             <Style TargetType="Label">
                                 <Setter Property="Content" Value="Отключено"/>
@@ -91,7 +91,51 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.ColumnSpan="2" Margin="0,0,0,15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Управление битами и регистром"/>
+                    <Rectangle Grid.Row="1" Height="2" Fill="DarkGray"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,0,0,10">
+                    <Button HorizontalAlignment="Left" Width="200" Height="30" Content="Уcтановить первый бит Coils" Command="{Binding TemporarilySetCoilsFirstBit}"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Второй бит coils" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <ToggleButton Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="50" Command="{Binding SetCoilsSecondBit}">
+                        <ToggleButton.Style>
+                            <Style TargetType="ToggleButton">
+                                <Setter Property="Content" Value="Ложь"/>
+
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCoilsSecondBit, Mode=OneWay}" Value="True">
+                                        <Setter Property="Content" Value="Правда"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ToggleButton.Style>
+                    </ToggleButton>
+                </Grid>
             </Grid>
         </Grid>
 
