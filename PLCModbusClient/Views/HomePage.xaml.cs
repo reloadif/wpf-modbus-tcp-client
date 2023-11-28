@@ -1,12 +1,14 @@
-﻿using System.Windows.Controls;
+﻿using PLCModbusClient.ViewModels;
+using System.Windows.Controls;
 
 namespace PLCModbusClient.Views
 {
     public partial class HomePage : UserControl
     {
-        public HomePage()
+        public HomePage(HomePageViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

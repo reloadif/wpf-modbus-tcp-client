@@ -51,6 +51,15 @@ namespace PLCModbusClient.ViewModels
                 {
                     MessageBox.Show("Успешное тестовое подключения к серверу Modbus TCP!");
                     modbusClient.Disconnect();
+
+                    if (Config.DefaultModbusControllerIp != _controllerIp)
+                    {
+                        Config.DefaultModbusControllerIp = _controllerIp;
+                    }
+                    if (Config.DefaultModbusControllerPort != _controllerPort)
+                    {
+                        Config.DefaultModbusControllerPort = _controllerPort;
+                    }
                 }
             }
             catch (Exception ex)

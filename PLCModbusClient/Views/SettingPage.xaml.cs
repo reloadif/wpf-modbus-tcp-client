@@ -5,9 +5,10 @@ namespace PLCModbusClient.Views
 {
     public partial class SettingPage : UserControl
     {
-        public SettingPage()
+        public SettingPage(SettingPageViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }
